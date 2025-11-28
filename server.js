@@ -1,8 +1,10 @@
+require('dotenv').config(); // Load .env variables
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
-const deviceRoutes = require('./Rotues/device');   // Make sure folder name is correct
+const deviceRoutes = require('./Rotues/device');   // Check folder name
 const locationRoutes = require('./Rotues/location');
 
 const app = express();
