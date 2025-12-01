@@ -1,5 +1,5 @@
 import connectDB from "../../lib/db.js";
-import Device from "../../models/Device.js";
+import Device from "../../Models/Device.js";
 
 export default async function handler(req, res) {
   await connectDB();
