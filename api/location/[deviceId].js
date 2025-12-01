@@ -1,5 +1,5 @@
 import connectDB from "../../lib/db.js";
-import Location from "../../models/Location.js";
+import Location from "../../Models/location.js";
 
 export default async function handler(req, res) {
   await connectDB();
