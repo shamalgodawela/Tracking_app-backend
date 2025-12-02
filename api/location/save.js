@@ -6,15 +6,24 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      const { deviceId, points } = req.body;
+      const { deviceId, lat, lng, shopName, timestamp, speed } = req.body;
 
-      if (!deviceId || !points || !Array.isArray(points)) {
-        return res.status(400).json({ success: false, message: "Invalid payload" });
+      if (!deviceId || !lat || !lng || !shopName || !timestamp) {
+        return res.status(400).json({ success: false, message: "Missing required fields: deviceId, lat, lng, shopName, timestamp" });
       }
 
-      await Location.insertMany(points.map((p) => ({ ...p, deviceId })));
+      const locationData = {
+        deviceId,
+        lat,
+        lng,
+        shopName,
+        timestamp: new Date(timestamp),
+        speed: speed || null
+      };
 
-      res.json({ success: true, message: "Points saved" });
+      await Location.create(locationData);
+
+      res.json({ success: true, message: "Location saved" });
     } catch (err) {
       res.status(500).json({ success: false, error: err.message });
     }

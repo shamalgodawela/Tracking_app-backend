@@ -5,6 +5,7 @@ const LocationSchema = new mongoose.Schema({
   lat: Number,
   lng: Number,
   speed: Number,
+  shopName: { type: String, required: true },
   timestamp: { type: Date, required: true },
 });
 
