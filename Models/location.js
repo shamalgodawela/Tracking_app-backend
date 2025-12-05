@@ -5,7 +5,7 @@ const LocationSchema = new mongoose.Schema({
   lat: Number,
   lng: Number,
   speed: Number,
-  shopName: { type: String, required: true },
+  shopName: { type: String},
   Dealername:{type:String},
   phonenumber:{type:String},
   timestamp: { type: Date, required: true },
