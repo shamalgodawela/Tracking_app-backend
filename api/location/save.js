@@ -6,7 +6,7 @@ export default async function handler(req, res) {
 
   if (req.method === "POST") {
     try {
-      const { deviceId, lat, lng, shopName, timestamp, speed } = req.body;
+      const { deviceId, lat, lng, shopName, timestamp, speed,Dealername,phonenumber } = req.body;
 
       if (!deviceId || !lat || !lng || !shopName || !timestamp) {
         return res.status(400).json({ success: false, message: "Missing required fields: deviceId, lat, lng, shopName, timestamp" });
@@ -17,6 +17,8 @@ export default async function handler(req, res) {
         lat,
         lng,
         shopName,
+        Dealername,
+        phonenumber,
         timestamp: new Date(timestamp),
         speed: speed || null
       };
