@@ -5,9 +5,10 @@ const LocationSchema = new mongoose.Schema({
   lat: Number,
   lng: Number,
   speed: Number,
-  shopName: { type: String},
-  Dealername:{type:String},
-  phonenumber:{type:String},
+  shopName: String,
+  Dealername: String,
+  phonenumber: String,
+  isAuto: { type: Boolean, default: false }, // <--- NEW
   timestamp: { type: Date, required: true },
 });
 
